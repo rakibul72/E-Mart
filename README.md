@@ -1,6 +1,6 @@
 # E-Mart
 
-1. Introduction:
+#Introduction:
 
 The name of our project is E-Mart.It is an online market place where users can buy their cherished products
 like Gadgets,Books,Groceries,Medicine etc.Foodies will also love our platform as there will be online food delivery
@@ -8,7 +8,7 @@ service.Our users will also be able to send beautiful gifts to their dear ones.V
 registration to sell their attractive products.Admins of the platform will look after every activity of the users
 and vendors.They will preserve all rights to maintain integrity of the platform.
 
-2. Proposed Features:
+#Proposed Features:
 
 1. Different Sections for User,Vendor and Admin:
 (a) Users have to register by signing up first.Then they will be able to use our platform to buy their
