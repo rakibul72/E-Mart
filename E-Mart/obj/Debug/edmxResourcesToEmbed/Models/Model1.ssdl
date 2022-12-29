@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdminName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Buyers">
+    <Key>
+      <PropertyRef Name="BuyerID" />
+    </Key>
+    <Property Name="BuyerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuyerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BuyerEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BuyerPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BuyerPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BuyerAdress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BuyerDOB" Type="date" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Has">
+    <Key>
+      <PropertyRef Name="HasID" />
+    </Key>
+    <Property Name="HasID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SellerID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SellerID" Type="int" Nullable="false" />
+    <Property Name="BuyerID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="AdminID" Type="int" Nullable="false" />
+    <Property Name="OrderQuantity" Type="int" Nullable="false" />
+    <Property Name="OrderDate" Type="date" Nullable="false" />
+    <Property Name="OrderStatus" Type="int" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ProductDescription" Type="text" />
+    <Property Name="ProductCategory" Type="text" Nullable="false" />
+    <Property Name="ProductRating" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ProductIMG" Type="text" Nullable="false" />
+    <Property Name="ProductStatus" Type="int" />
+  </EntityType>
+  <EntityType Name="Sellers">
+    <Key>
+      <PropertyRef Name="SellerID" />
+    </Key>
+    <Property Name="SellerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SellerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SellerEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SellerPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SellerPhone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SellerAdress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SellerRating" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="FK__Has__ProductID__286302EC">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Has" Type="Self.Has" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Has">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Has__SellerID__276EDEB3">
+    <End Role="Sellers" Type="Self.Sellers" Multiplicity="1" />
+    <End Role="Has" Type="Self.Has" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sellers">
+        <PropertyRef Name="SellerID" />
+      </Principal>
+      <Dependent Role="Has">
+        <PropertyRef Name="SellerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__AdminID__239E4DCF">
+    <End Role="Admins" Type="Self.Admins" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admins">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__BuyerID__21B6055D">
+    <End Role="Buyers" Type="Self.Buyers" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buyers">
+        <PropertyRef Name="BuyerID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="BuyerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__ProductI__22AA2996">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__SellerID__20C1E124">
+    <End Role="Sellers" Type="Self.Sellers" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sellers">
+        <PropertyRef Name="SellerID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="SellerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Products__Catego__1BFD2C07">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Buyers" EntityType="Self.Buyers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Has" EntityType="Self.Has" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sellers" EntityType="Self.Sellers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Has__ProductID__286302EC" Association="Self.FK__Has__ProductID__286302EC">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Has" EntitySet="Has" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Has__SellerID__276EDEB3" Association="Self.FK__Has__SellerID__276EDEB3">
+      <End Role="Sellers" EntitySet="Sellers" />
+      <End Role="Has" EntitySet="Has" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__AdminID__239E4DCF" Association="Self.FK__Orders__AdminID__239E4DCF">
+      <End Role="Admins" EntitySet="Admins" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__BuyerID__21B6055D" Association="Self.FK__Orders__BuyerID__21B6055D">
+      <End Role="Buyers" EntitySet="Buyers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__ProductI__22AA2996" Association="Self.FK__Orders__ProductI__22AA2996">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__SellerID__20C1E124" Association="Self.FK__Orders__SellerID__20C1E124">
+      <End Role="Sellers" EntitySet="Sellers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Products__Catego__1BFD2C07" Association="Self.FK__Products__Catego__1BFD2C07">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

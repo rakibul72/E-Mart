@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="95b90d4fdaa9455b852a78954e7d1ced" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Admin" Width="1.5" PointX="3.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Buyer" Width="1.5" PointX="3.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Category" Width="1.5" PointX="1.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Has" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Order" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Seller" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK__Orders__AdminID__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Orders__BuyerID__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Products__Catego__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Has__ProductID__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Has__SellerID__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Orders__ProductI__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Orders__SellerID__20C1E124" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
