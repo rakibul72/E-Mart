@@ -1,0 +1,90 @@
+﻿@model E_Mart.Models.Product
+
+@if ((string)TempData["Referrer"] == "SaveRegister")
+{
+    <div class="alert alert-success">
+        <strong>Product added successfully</strong>
+    </div>
+}
+
+
+@using (Html.BeginForm("Create", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+
+        <div data-aos="fade-down" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="1000">
+
+            <img class="rounded mx-auto d-block" src="~/images/Seller_ProductAdd_Logo.png" width="400" height="350" style="margin-bottom: 20px; margin-top: 20px; " />
+
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4 justify-content-center ">
+
+                <div class="form-horizontal">
+                    <h4 style="text-align: center; animation: scale 1.5s forwards;">Add Product</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group mb-3" style="margin-left:55px">
+                        @Html.LabelFor(model => model.CategoryID, "Product Category", htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3" style="margin-left:55px">
+                        @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3" style="margin-left:55px">
+                        @Html.LabelFor(model => model.ProductPrice, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ProductPrice, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ProductPrice, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3" style="margin-left:55px">
+                        @Html.LabelFor(model => model.ProductDescription, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ProductDescription, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ProductDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="group" style="margin-left:55px">
+                        @Html.LabelFor(model => model.ProductIMG, htmlAttributes: new { @class = "label" })
+                        <div class="col-md-10">
+                            <input type="file" name="ImageFile" required />
+                        </div>
+                    </div>
+
+
+                        <div class="form-group mb-3">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Add" class="btn btn-default" style="font-size: 30px; margin-left: 150px; background-color: #868e96; margin-top: 25px; border-radius: 5px; " onmouseover="this.style.backgroundColor='#006db9'" onmouseout="this.style.backgroundColor='#868e96'" />
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div style="font-size:20px">
+    @Html.ActionLink("Back to DashBoard", "../Sellers/RealDashBoard")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,55 @@
+﻿@model E_Mart.Models.Has
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Has</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductCategory)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductCategory)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductIMG)
+        </dt>
+        <dd>
+            <img src="@Url.Content(Model.Product.ProductIMG)" width="250" height="250" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductPrice)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-default" style="font-size: 30px; margin-left: 37px; background-color: #868e96; margin-top: 25px; border-radius: 5px; " onmouseover="this.style.backgroundColor='#ff0000'" onmouseout="this.style.backgroundColor= '#868e96'" /> |
+    @Html.ActionLink("Back", "viewProducts")
+</div>
+    }
+</div>

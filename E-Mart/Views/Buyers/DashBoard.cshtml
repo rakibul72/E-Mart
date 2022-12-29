@@ -1,0 +1,42 @@
+﻿@model E_Mart.Models.Buyer
+
+<div>
+    <h4 style="text-align: center; margin-top: 20px; font-size: 35px; animation: scale 1.5s forwards;">Buyer Profile</h4>
+    <hr />
+    <dl class="dl-horizontal" style="font-size:25px;  justify-content:center; padding-left: 500px">
+        <dt style="margin-top:35px">
+            @Html.DisplayNameFor(model => model.BuyerName)
+            @Html.DisplayFor(model => model.BuyerName)
+        </dt>
+
+        <dt style="margin-top:35px">
+            @Html.DisplayNameFor(model => model.BuyerEmail)
+            @Html.DisplayFor(model => model.BuyerEmail)
+        </dt>
+
+        <dt style="margin-top:35px">
+            @Html.DisplayNameFor(model => model.BuyerPassword)
+            @Html.DisplayFor(model => model.BuyerPassword)
+        </dt>
+
+        <dt style="margin-top:35px">
+            @Html.DisplayNameFor(model => model.BuyerPhone)
+            @Html.DisplayFor(model => model.BuyerPhone)
+        </dt>
+
+        <dt style="margin-top:35px">
+            @Html.DisplayNameFor(model => model.BuyerAdress)
+            @Html.DisplayFor(model => model.BuyerAdress)
+        </dt>
+
+        <dt style="margin-top:35px">
+            @Html.DisplayNameFor(model => model.BuyerDOB)
+            @Html.DisplayFor(model => model.BuyerDOB)
+        </dt>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BuyerID }) |
+    @Html.ActionLink("Back", "RealDashBoard")
+</p>

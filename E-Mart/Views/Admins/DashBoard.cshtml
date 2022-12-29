@@ -1,0 +1,24 @@
+﻿@model E_Mart.Models.Admin
+
+<div>
+    <h4 style="text-align: center; margin-top: 20px; font-size: 35px; animation: scale 1.5s forwards;">Admin Profile</h4>
+    <hr />
+    <dl class="dl-horizontal" style="font-size:25px;  justify-content:center; padding-left: 500px">
+        <dt style="margin-top:35px">
+            @Html.DisplayNameFor(model => model.AdminName)
+            @Html.DisplayFor(model => model.AdminName)
+        </dt>
+
+        <dt style="margin-top:35px">
+            @Html.DisplayNameFor(model => model.AdminEmail)
+            @Html.DisplayFor(model => model.AdminEmail)
+        </dt>
+
+        
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {id=Model.AdminID }) | 
+    @Html.ActionLink("Back", "RealDashBoard")
+</p>

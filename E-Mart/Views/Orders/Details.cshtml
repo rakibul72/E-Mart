@@ -1,0 +1,66 @@
+﻿@model E_Mart.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin.AdminName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin.AdminName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Buyer.BuyerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Buyer.BuyerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Seller.SellerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seller.SellerName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

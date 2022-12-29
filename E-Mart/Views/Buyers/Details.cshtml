@@ -1,0 +1,74 @@
+﻿@model E_Mart.Models.Buyer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Buyer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyerEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyerEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyerPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyerPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyerPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyerPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyerAdress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyerAdress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyerDOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyerDOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyerGender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyerGender)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BuyerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

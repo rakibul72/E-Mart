@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+     <link href="@Url.Content("~/Content/style.css")" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.8.0.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body style="padding-top:0px;padding-bottom:0px">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Products/Logout"><img src="~/images/emart_logo.png" style="height:45px;width:60px;" /></a>
+                    </li>
+                    <li class="nav-item" style="margin-top: 10px;">
+                        <a class="nav-link" href="~/Products/Logout">
+                            Home
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" style="margin-top: 10px;">
+                        <a class="nav-link" href="~/Home/Contact">FAQ</a>
+                    </li>
+                    <li class="nav-item" style="margin-top: 10px;">
+                        <a class="nav-link" href="~/Home/About">About</a>
+                    </li>
+
+                    @if (Session["admin_email"] != null || Session["buyer_email"] != null || Session["seller_email"] != null)
+                    {
+                        <li class="nav-item" style="margin-top: 10px;">
+                            <a class="nav-link" href="~/Products/Logout">LogOut</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item" style="margin-top: 10px;">
+                            <a class="nav-link" href="~/Admins/LogIn">Admin</a>
+                        </li>
+                        <li class="nav-item" style="margin-top: 10px;">
+                            <a class="nav-link" href="~/Buyers/LogIn">Buyer</a>
+                        </li>
+                        <li class="nav-item" style="margin-top: 10px;">
+                            <a class="nav-link" href="~/Sellers/LogIn">Seller</a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+    </div>
+
+    <div style="margin-bottom:0px">
+
+        <footer id="footer" class="footer-1">
+            <div class="main-footer widgets-dark typo-light bg-dark">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="widget subscribe no-box">
+                                <h5 class="widget-title" style="color: white ; padding-top: 30px; font-size:30px">E-Mart<span></span></h5>
+                                <p style="color: white; font-size:20px">
+                                    A place to buy and sell your wonderful products.
+                                </p>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="widget no-box">
+                                <h5 class="widget-title" style="color: white ; padding-top: 30px; font-size: 30px">Address<span></span></h5>
+                                <p style="color: white; font-size: 20px"><i class="fa fa-home mr-3"></i>318/B Mohakhali</p>
+                                <p style="color: white; font-size: 20px"><i class="fa fa-phone mr-3"></i>+102498</p>
+                                <p style="color: white; font-size: 20px"><i class="fa fa-envelope-o mr-3"></i>emart@gmail.com</p>
+
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+
+                            <div class="widget no-box">
+                                <h5 class="widget-title" style="color: white; padding-top: 30px; font-size: 30px">Social Links<span></span></h5>
+
+
+                                <ul class="social-footer2">
+                                    <li class="" style="margin-bottom:10px"><a href="https://www.youtube.com/"><i class="fa fa-youtube mr-3" style="color: white; font-size: 24px"></i></a></li>
+                                    <li class="" style="margin-bottom:10px"><a href="https://www.facebook.com/"><i class="fa fa-facebook mr-3" style="color: white; font-size: 24px"></i></a></li>
+                                    <li class="" style="margin-bottom:10px"><a href="https://www.twitter.com/"><i class="fa fa-twitter mr-3" style="color: white; font-size: 24px"></i></a></li>
+                                    <li class="" style="margin-bottom:10px"><a href="https://www.instagram.com/"><i class="fa fa-instagram mr-3" style="color: white; font-size: 24px"></i></a></li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright bg-dark" style="padding-bottom: 30px; padding-top: 20px; font-size: 15px">
+                <div class="container ">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <p style="color: white">Copyright E-Mart © 2021. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

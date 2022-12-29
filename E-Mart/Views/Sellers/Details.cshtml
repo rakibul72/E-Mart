@@ -1,0 +1,48 @@
+﻿@model E_Mart.Models.Seller
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div>
+    <h4 style="text-align: center; margin-top: 20px; font-size: 35px; animation: scale 1.5s forwards;">Seller Profile</h4>
+    <hr />
+    <dl class="dl-horizontal" style="font-size:25px;  justify-content:center; padding-left: 500px">
+        <dt style="margin-top:35px">
+            @Html.DisplayNameFor(model => model.SellerName)
+            @Html.DisplayFor(model => model.SellerName)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SellerEmail)
+            @Html.DisplayFor(model => model.SellerEmail)
+        </dt>
+
+
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SellerPhone)
+            @Html.DisplayFor(model => model.SellerPhone)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SellerAdress)
+            @Html.DisplayFor(model => model.SellerAdress)
+        </dt>
+
+
+    </dl>
+</div>
+
+<div style="margin-bottom:350px">
+
+
+</div>
+
+<p style="font-size:20px">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SellerID }) |
+    @Html.ActionLink("Back", "RealDashBoard")
+</p>

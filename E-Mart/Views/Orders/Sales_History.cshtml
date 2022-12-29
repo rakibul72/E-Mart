@@ -1,0 +1,64 @@
+﻿@model IEnumerable<E_Mart.Models.Order>
+
+
+<h2 style="animation: scale 1.5s forwards;">Your Sales History</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderQuantity)
+        </th>
+        <th>
+            Price Per Unit(BDT)
+        </th>
+        <th>
+            Total Price(BDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Buyer.BuyerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Buyer.BuyerPhone)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductPrice)
+            </td>
+            <td>
+                @{
+                    decimal ppu = item.Product.ProductPrice;
+                    ppu = ppu * item.OrderQuantity;
+
+                }
+                @ppu
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Buyer.BuyerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Buyer.BuyerPhone)
+            </td>
+         </tr>
+    }
+
+</table>
+@Html.ActionLink("Back", "../Sellers/RealDashBoard") 

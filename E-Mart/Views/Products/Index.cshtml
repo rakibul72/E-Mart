@@ -1,0 +1,100 @@
+﻿@model IEnumerable<E_Mart.Models.Product>
+
+
+
+@if ((string)TempData["Referrer"] == "SaveRegister")
+{
+    <div class="alert alert-success">
+        <strong>Order Placed Successfully</strong>
+    </div>
+}
+else if ((string)TempData["Referrer"] == "Error")
+{
+    <div class="alert alert-success" style="background-color: red;">
+        <strong>No Product in Cart</strong>
+    </div>
+}
+
+<h2 style="text-align: center; margin-top: 10px; margin-bottom: 15px; animation: scale 1.5s forwards;">Products</h2>
+
+
+<div class="row">
+
+    <h6>Filter By: </h6>
+    <div class="col-md-1" style="margin-left: 5px;">
+        @Html.ActionLink("All", "Index", new { cid = "All" })
+    </div>
+    <div class="col-md-1" style="margin-left: 5px;">
+        @Html.ActionLink("Laptop", "Index", new { cid = "Laptop" })
+    </div>
+    <div class="col-md-1" style="margin-left: 5px;">
+        @Html.ActionLink("Mobile", "Index", new { cid = "Mobile" })
+    </div>
+    <div class="col-md-1" style="margin-left: 5px;">
+        @Html.ActionLink("Gadget", "Index", new { cid = "Gadget" })
+    </div>
+    <div class="col-md-1" style="margin-left: 5px;">
+        @Html.ActionLink("Book", "Index", new { cid = "Book" })
+    </div>
+
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductRating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductIMG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.ProductName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductRating)
+            </td>
+            <td>
+                <img src="@Url.Content(item.ProductIMG)" width="250" height="250" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.ProductName)
+            </td>
+            <td>
+                @Html.ActionLink("Add to Cart", "Check", new { id = item.ProductID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
+
+            </td>
+        </tr>
+    }
+
+
+
+
+</table>
+@Html.ActionLink("Back", "../Buyers/RealDashBoard", new { }) |
+@Html.ActionLink("Cart", "Cart", new { })
