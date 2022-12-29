@@ -50,3 +50,16 @@ notices to this platform.
 
 9. Frequently Asked Question(FAQ):
 (a) The users and vendors will find answers of frequently asked questions related to our platform.
+
+10. Forgot Password and Change Password:
+(a) The users and vendors can reset their password if they forget their password.They can also change
+their password if they want to do so.
+
+11. About Us:
+(a) The users and vendors can learn about our platform,features and developers information in this
+section.
+
+12. Log Out:
+(a) The users and vendors can logout from their account after finishing use of our website for ensuring
+their information safety and avoid unwanted update of user profile by other persons using the same
+device.
